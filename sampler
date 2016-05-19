@@ -1,0 +1,2 @@
+rm sample
+mongo localhost/test < mongoSampler.js >> sample

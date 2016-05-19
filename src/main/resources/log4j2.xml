@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%red{%d{HH:mm:ss.SSS}} %black{[%t]} %cyan{%-5level} %magenta{%logger{36}} - %msg%n"/>
+        </Console>
+        <File name="File" fileName="logs/app.log">
+            <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t]} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="net.pi" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

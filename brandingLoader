@@ -1,0 +1,1 @@
+mongo localhost/test < mongoBrandingLoader.js

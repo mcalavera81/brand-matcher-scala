@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo
+
+  mongo-seed:
+    build: ./mongo-seed
+    volumes:
+     - ${DATA_DIR}:/hotel_data/
+
+  main:
+      image: branding
+      environment:
+        - MONGODB_HOSTNAME=mongodb
+        - BATCH_SIZE=${BATCH_SIZE}
+      volumes_from:
+        - mongo-seed
+      links:
+        - mongodb
